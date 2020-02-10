@@ -15,8 +15,15 @@ namespace Mario
     public partial class Form1 : Form
     {
         public int backgroundSpeed = 0;
-        public int marioUpSpeed = 0;
         public int baseMarioY = 570;
+        // movement
+        public bool marioLeft = false;
+        public bool marioRight = false;
+        // jumping
+        public int force;
+        public int gravity;
+        public bool jumping = false;
+
         public Form1()
 
         {
@@ -26,6 +33,8 @@ namespace Mario
 
         private void movementTimer_Tick(object sender, EventArgs e)
         {
+            if(marioLeft && !collisionLeft(mario)) { backgroundSpeed = 5; }
+            if (marioRight && !collisionRight(mario)) { backgroundSpeed = -5; }
 
             background1.Left += backgroundSpeed;
             background2.Left += backgroundSpeed;
@@ -40,56 +49,46 @@ namespace Mario
                 background2.Left = 700;
             }
 
-            if(marioUpSpeed > 0)
-            {
-                mario.Top -= marioUpSpeed;
-            }
-            else { mario.Top = baseMarioY; }
 
-            /*background1.Location = new Point(background1.Location.X + backgroundSpeed, background1.Location.Y);
-            background2.Location = new Point(background2.Location.X + backgroundSpeed, background2.Location.Y);
-
-            if (background1.Left < 0)
-            {
-                background1.Location = new Point(background1.Location.X + 1050, background1.Location.Y);
-            }
-
-            if (background2.Left < 0)
-            {
-                background2.Location = new Point(background2.Location.X + 1050, background2.Location.Y);
-            }*/
         }
 
         private void move(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            switch (e.KeyCode)
             {
-                backgroundSpeed += 10;
-            }
-
-            if (e.KeyCode == Keys.Right)
-            {
-                backgroundSpeed -= 10;
-            }
-
-            if(e.KeyCode == Keys.Up)
-            {
-                backgroundSpeed -= 3;
-                marioUpSpeed = 10;
+                case Keys.Left:
+                    marioLeft = true;
+                    break;
+                case Keys.Right:
+                    marioRight = true;
+                    break;
             }
         }
 
         private void stop(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            switch (e.KeyCode)
             {
-                backgroundSpeed = 0;
+                case Keys.Left:
+                    marioLeft = false;
+                    backgroundSpeed = 0;
+                    break;
+                case Keys.Right:
+                    marioRight = false;
+                    backgroundSpeed = 0;
+                    break;
             }
-            if (e.KeyCode == Keys.Right)
-            {
-                backgroundSpeed = 0;
-            }
-
         }
+
+        private bool collisionLeft(PictureBox mario)
+        {
+            return false;
+        }
+
+        private bool collisionRight(PictureBox mario)
+        {
+            return false;
+        }
+
     }
 }

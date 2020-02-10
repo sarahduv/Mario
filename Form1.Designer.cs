@@ -34,6 +34,7 @@
             this.background1 = new System.Windows.Forms.PictureBox();
             this.background2 = new System.Windows.Forms.PictureBox();
             this.movementTimer = new System.Windows.Forms.Timer(this.components);
+            this.gravityTimer = new System.Windows.Forms.Timer(this.components);
             this.container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background1)).BeginInit();
@@ -88,6 +89,10 @@
             this.movementTimer.Enabled = true;
             this.movementTimer.Tick += new System.EventHandler(this.movementTimer_Tick);
             // 
+            // gravityTimer
+            // 
+            this.gravityTimer.Enabled = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +119,7 @@
         private System.Windows.Forms.Timer movementTimer;
         private System.Windows.Forms.PictureBox mario;
         private System.Windows.Forms.PictureBox background2;
+        private System.Windows.Forms.Timer gravityTimer;
     }
 }
 
