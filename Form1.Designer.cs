@@ -32,8 +32,8 @@
             this.container = new System.Windows.Forms.Panel();
             this.mario = new System.Windows.Forms.PictureBox();
             this.background1 = new System.Windows.Forms.PictureBox();
-            this.movementTimer = new System.Windows.Forms.Timer(this.components);
             this.background2 = new System.Windows.Forms.PictureBox();
+            this.movementTimer = new System.Windows.Forms.Timer(this.components);
             this.container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background1)).BeginInit();
@@ -47,7 +47,7 @@
             this.container.Controls.Add(this.background2);
             this.container.Location = new System.Drawing.Point(-5, -4);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(1194, 656);
+            this.container.Size = new System.Drawing.Size(1000, 650);
             this.container.TabIndex = 0;
             // 
             // mario
@@ -72,28 +72,28 @@
             this.background1.TabIndex = 1;
             this.background1.TabStop = false;
             // 
-            // movementTimer
-            // 
-            this.movementTimer.Enabled = true;
-            this.movementTimer.Tick += new System.EventHandler(this.movementTimer_Tick);
-            // 
             // background2
             // 
             this.background2.BackColor = System.Drawing.Color.White;
             this.background2.BackgroundImage = global::Mario.Properties.Resources.background;
-            this.background2.Location = new System.Drawing.Point(450, 0);
+            this.background2.Location = new System.Drawing.Point(700, 0);
             this.background2.Name = "background2";
             this.background2.Size = new System.Drawing.Size(1290, 653);
             this.background2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.background2.TabIndex = 2;
             this.background2.TabStop = false;
             // 
+            // movementTimer
+            // 
+            this.movementTimer.Enabled = true;
+            this.movementTimer.Tick += new System.EventHandler(this.movementTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1180, 721);
+            this.ClientSize = new System.Drawing.Size(997, 741);
             this.Controls.Add(this.container);
             this.Name = "Form1";
             this.Text = "Form1";
