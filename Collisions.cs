@@ -28,6 +28,11 @@ namespace Mario
                     isCoin(worldItems[i]);
                     return true;
                 }
+                if (bounds.Bottom == worldItems[i].Bounds.Top)
+                {
+                    return isLandingOnItem(worldItems[i]);
+                }
+
                 if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "question")
                 {
                     isQuestion(worldItems[i]);
@@ -59,9 +64,40 @@ namespace Mario
         {
             question.Tag = "brick";
             question.Image = Properties.Resources.brick;
+
+            var popUp = new PictureBox();
+            var newLoc = FormToBackgroundCoords(question.Location, world.backgroundSky);
+            popUp.Size = world.coins[0].Size;
+            popUp.Visible = true;
+            popUp.Image = Properties.Resources.coinTurning;
+            popUp.SizeMode = PictureBoxSizeMode.StretchImage;
+            popUp.BackColor = Color.Transparent;
+            popUp.Location = new Point(newLoc.X, newLoc.Y - popUp.Height);
+            world.backgroundSky.Controls.Add(question);
+            world.backgroundSky.Controls.Add(popUp);
+            popUp.Tag = "coin";
+            world.worldItems.Add(popUp);
+     
         }
 
+        public bool isLandingOnItem(PictureBox item)
+        {
+            String[] landableItems = new string[2] { "question", "brick" };
+            for(var i = 0; i <landableItems.Length; i++)
+            {
+                if((string)item.Tag == landableItems[i])
+                {
+                    world.baseMarioY -= item.Height;
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        public Point FormToBackgroundCoords(Point src, Control background)
+        {
+            return new Point(src.X - background.Location.X, src.Y - background.Location.Y);
+        }
 
         /*   private void bounce(PictureBox mario, string direction)
            {

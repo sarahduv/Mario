@@ -15,6 +15,7 @@ namespace Mario
     public partial class Form1 : Form
     {
         private Collisions collisions;
+        private Movement movement;
 
         public int backgroundSpeed = 0;
         public int baseMarioY = 675;
@@ -36,7 +37,8 @@ namespace Mario
         {
             InitializeComponent();
             collisions = new Collisions(this);
-            worldItems = new List<PictureBox> { question1, question2, coin1, coin2, coin3, coin4 };
+            movement = new Movement(this);
+            worldItems = new List<PictureBox> { question1, question2, brick1, brick2, coin1, coin2, coin3, coin4 };
             clouds = new List<PictureBox> { cloud1, cloud2, cloud3 };
             coins = new List<PictureBox> { coin1, coin2, coin3, coin4 };
             backgroundSky.Controls.Add(cloud1);
@@ -52,15 +54,8 @@ namespace Mario
             else { backgroundSpeed = 0; }
             if (marioJumping && collisions.isColliding(mario.Bounds.MoveUp(10), worldItems)) { jumpForce = 0; }
 
-            ground.Left += backgroundSpeed;
-            for(var i = 0; i < worldItems.Count; i++)
-            {
-                worldItems[i].Left += backgroundSpeed;
-            }
-            for(var i = 0; i < clouds.Count; i++)
-            {
-                clouds[i].Left += backgroundSpeed/3;
-            }
+            movement.moveItems();
+
         }
 
         private void gravityTimer_Tick(object sender, EventArgs e)
@@ -86,16 +81,19 @@ namespace Mario
             {
                 case Keys.Left:
                     marioLeft = true;
+                    movement.invertImage();
                     break;
                 case Keys.Right:
+                    movement.invertImage();
                     marioRight = true;
                     break;
                 case Keys.Up:
-                    // Can Jump (only if touching ground)
-                    marioJumping = true;
-                    jumpForce = 25;
+                    if(mario.Location.Y == baseMarioY)
+                    {
+                        marioJumping = true;
+                        jumpForce = 30;
+                    }
                     break;
-
             }
         }
 
@@ -114,6 +112,9 @@ namespace Mario
             }
         }
 
+        private void backgroundSky_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
