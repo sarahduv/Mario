@@ -14,6 +14,8 @@ namespace Mario
 {
     public partial class Form1 : Form
     {
+        private Collisions collisions;
+
         public int backgroundSpeed = 0;
         public int baseMarioY = 570;
         // movement
@@ -22,22 +24,27 @@ namespace Mario
         // jumping
         public int force;
         public int gravity;
-        public bool jumping = false;
+        public bool marioJumping = false;
+        //items
+        public List<PictureBox> worldItems;
 
         public Form1()
 
         {
             InitializeComponent();
-
+            collisions = new Collisions(this);
+            worldItems = new List<PictureBox> { pictureBox1, pictureBox2 };
         }
 
         private void movementTimer_Tick(object sender, EventArgs e)
         {
-            if(marioLeft && !collisionLeft(mario)) { backgroundSpeed = 5; }
-            if (marioRight && !collisionRight(mario)) { backgroundSpeed = -5; }
+            if (marioLeft && !collisions.collisionLeft(mario, worldItems)) { backgroundSpeed = 10; }
+            if (marioRight && !collisions.collisionRight(mario, worldItems)) { backgroundSpeed = -10; }
 
             background1.Left += backgroundSpeed;
             background2.Left += backgroundSpeed;
+            pictureBox1.Left += backgroundSpeed;
+            pictureBox2.Left += backgroundSpeed;
 
             if (background1.Left < -1000)
             {
@@ -48,7 +55,10 @@ namespace Mario
             {
                 background2.Left = 700;
             }
+        }
 
+        private void gravityTimer_Tick(object sender, EventArgs e)
+        {
 
         }
 
@@ -61,6 +71,9 @@ namespace Mario
                     break;
                 case Keys.Right:
                     marioRight = true;
+                    break;
+                case Keys.Down:
+                    marioJumping = true;
                     break;
             }
         }
@@ -80,15 +93,8 @@ namespace Mario
             }
         }
 
-        private bool collisionLeft(PictureBox mario)
-        {
-            return false;
-        }
 
-        private bool collisionRight(PictureBox mario)
-        {
-            return false;
-        }
 
+        
     }
 }
