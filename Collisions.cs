@@ -36,6 +36,7 @@ namespace Mario
             return isColliding(mario.Bounds, worldItems);
         }
 
+
         public bool isCoin(PictureBox mario, List<PictureBox> worldItems)
         {
             for (var i = 0; i < worldItems.Count; i++)
@@ -49,6 +50,7 @@ namespace Mario
             }
             return false;
         }
+
 
 
      /*   private void bounce(PictureBox mario, string direction)

@@ -128,12 +128,13 @@
             // question1
             // 
             this.question1.Image = global::Mario.Properties.Resources.questionGIF;
-            this.question1.Location = new System.Drawing.Point(873, 636);
+            this.question1.Location = new System.Drawing.Point(899, 623);
             this.question1.Name = "question1";
             this.question1.Size = new System.Drawing.Size(25, 25);
             this.question1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.question1.TabIndex = 4;
             this.question1.TabStop = false;
+            this.question1.Tag = "question";
             // 
             // question2
             // 
@@ -144,7 +145,7 @@
             this.question2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.question2.TabIndex = 5;
             this.question2.TabStop = false;
-            this.question2.Tag = "extraLife";
+            this.question2.Tag = "question";
             // 
             // cloud1
             // 

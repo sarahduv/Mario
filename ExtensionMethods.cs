@@ -18,5 +18,10 @@ namespace Mario
         {
             return MoveLeft(rect, -amount);
         }
+
+        public static Rectangle MoveUp(this Rectangle rect, int amount)
+        {
+            return new Rectangle(rect.X, rect.Y - amount, rect.Width, rect.Height);
+        }
     }
 }

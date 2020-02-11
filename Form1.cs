@@ -56,6 +56,7 @@ namespace Mario
             if (marioLeft && !collisions.isColliding(mario.Bounds.MoveLeft(10), worldItems)) { backgroundSpeed = 10; }
             else if (marioRight && !collisions.isColliding(mario.Bounds.MoveRight(10), worldItems)) { backgroundSpeed = -10; }
             else { backgroundSpeed = 0; }
+            if (marioJumping && collisions.isColliding(mario.Bounds.MoveUp(10), worldItems)) { jumpForce = 0; }
 
             ground.Left += backgroundSpeed;
             for(var i = 0; i < worldItems.Count; i++)
