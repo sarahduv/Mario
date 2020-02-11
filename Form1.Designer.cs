@@ -35,6 +35,12 @@
             this.labelLives = new System.Windows.Forms.Label();
             this.labelScoreNum = new System.Windows.Forms.Label();
             this.labelLivesNum = new System.Windows.Forms.Label();
+            this.bulletTimer = new System.Windows.Forms.Timer(this.components);
+            this.bullet = new System.Windows.Forms.PictureBox();
+            this.cannon = new System.Windows.Forms.PictureBox();
+            this.mushroomRed1 = new System.Windows.Forms.PictureBox();
+            this.brick2 = new System.Windows.Forms.PictureBox();
+            this.brick1 = new System.Windows.Forms.PictureBox();
             this.coin4 = new System.Windows.Forms.PictureBox();
             this.coin3 = new System.Windows.Forms.PictureBox();
             this.coin2 = new System.Windows.Forms.PictureBox();
@@ -47,8 +53,11 @@
             this.question2 = new System.Windows.Forms.PictureBox();
             this.cloud1 = new System.Windows.Forms.PictureBox();
             this.backgroundSky = new System.Windows.Forms.PictureBox();
-            this.brick1 = new System.Windows.Forms.PictureBox();
-            this.brick2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bullet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cannon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mushroomRed1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brick2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brick1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin2)).BeginInit();
@@ -61,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brick1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brick2)).BeginInit();
             this.SuspendLayout();
             // 
             // movementTimer
@@ -116,11 +123,70 @@
             this.labelLivesNum.TabIndex = 19;
             this.labelLivesNum.Text = "3";
             // 
+            // bulletTimer
+            // 
+            this.bulletTimer.Interval = 3000;
+            this.bulletTimer.Tick += new System.EventHandler(this.bulletTimer_Tick);
+            // 
+            // bullet
+            // 
+            this.bullet.Image = global::Mario.Properties.Resources.bullet;
+            this.bullet.Location = new System.Drawing.Point(1180, 656);
+            this.bullet.Name = "bullet";
+            this.bullet.Size = new System.Drawing.Size(38, 26);
+            this.bullet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bullet.TabIndex = 24;
+            this.bullet.TabStop = false;
+            this.bullet.Tag = "bullet";
+            // 
+            // cannon
+            // 
+            this.cannon.Image = global::Mario.Properties.Resources.cannon;
+            this.cannon.Location = new System.Drawing.Point(1180, 651);
+            this.cannon.Name = "cannon";
+            this.cannon.Size = new System.Drawing.Size(60, 68);
+            this.cannon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cannon.TabIndex = 23;
+            this.cannon.TabStop = false;
+            // 
+            // mushroomRed1
+            // 
+            this.mushroomRed1.Image = global::Mario.Properties.Resources.mushroomRed;
+            this.mushroomRed1.Location = new System.Drawing.Point(473, 694);
+            this.mushroomRed1.Name = "mushroomRed1";
+            this.mushroomRed1.Size = new System.Drawing.Size(25, 25);
+            this.mushroomRed1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mushroomRed1.TabIndex = 22;
+            this.mushroomRed1.TabStop = false;
+            this.mushroomRed1.Tag = "mushroomRed";
+            // 
+            // brick2
+            // 
+            this.brick2.Image = global::Mario.Properties.Resources.brick;
+            this.brick2.Location = new System.Drawing.Point(1084, 694);
+            this.brick2.Name = "brick2";
+            this.brick2.Size = new System.Drawing.Size(25, 25);
+            this.brick2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.brick2.TabIndex = 21;
+            this.brick2.TabStop = false;
+            this.brick2.Tag = "brick";
+            // 
+            // brick1
+            // 
+            this.brick1.Image = global::Mario.Properties.Resources.brick;
+            this.brick1.Location = new System.Drawing.Point(1060, 694);
+            this.brick1.Name = "brick1";
+            this.brick1.Size = new System.Drawing.Size(25, 25);
+            this.brick1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.brick1.TabIndex = 20;
+            this.brick1.TabStop = false;
+            this.brick1.Tag = "brick";
+            // 
             // coin4
             // 
             this.coin4.BackColor = System.Drawing.Color.Transparent;
             this.coin4.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin4.Location = new System.Drawing.Point(1104, 588);
+            this.coin4.Location = new System.Drawing.Point(819, 588);
             this.coin4.Name = "coin4";
             this.coin4.Size = new System.Drawing.Size(25, 25);
             this.coin4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -132,7 +198,7 @@
             // 
             this.coin3.BackColor = System.Drawing.Color.Transparent;
             this.coin3.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin3.Location = new System.Drawing.Point(1073, 588);
+            this.coin3.Location = new System.Drawing.Point(788, 588);
             this.coin3.Name = "coin3";
             this.coin3.Size = new System.Drawing.Size(25, 25);
             this.coin3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -144,7 +210,7 @@
             // 
             this.coin2.BackColor = System.Drawing.Color.Transparent;
             this.coin2.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin2.Location = new System.Drawing.Point(1042, 588);
+            this.coin2.Location = new System.Drawing.Point(757, 588);
             this.coin2.Name = "coin2";
             this.coin2.Size = new System.Drawing.Size(25, 25);
             this.coin2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +222,7 @@
             // 
             this.coin1.BackColor = System.Drawing.Color.Transparent;
             this.coin1.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin1.Location = new System.Drawing.Point(1011, 588);
+            this.coin1.Location = new System.Drawing.Point(726, 588);
             this.coin1.Name = "coin1";
             this.coin1.Size = new System.Drawing.Size(25, 25);
             this.coin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,7 +265,7 @@
             // 
             this.mario.BackColor = System.Drawing.Color.Transparent;
             this.mario.Image = global::Mario.Properties.Resources.mario;
-            this.mario.Location = new System.Drawing.Point(923, 670);
+            this.mario.Location = new System.Drawing.Point(548, 672);
             this.mario.Name = "mario";
             this.mario.Size = new System.Drawing.Size(30, 47);
             this.mario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,7 +275,7 @@
             // question1
             // 
             this.question1.Image = global::Mario.Properties.Resources.questionGIF;
-            this.question1.Location = new System.Drawing.Point(899, 623);
+            this.question1.Location = new System.Drawing.Point(596, 630);
             this.question1.Name = "question1";
             this.question1.Size = new System.Drawing.Size(25, 25);
             this.question1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,7 +286,7 @@
             // question2
             // 
             this.question2.Image = global::Mario.Properties.Resources.questionGIF;
-            this.question2.Location = new System.Drawing.Point(836, 665);
+            this.question2.Location = new System.Drawing.Point(643, 630);
             this.question2.Name = "question2";
             this.question2.Size = new System.Drawing.Size(25, 25);
             this.question2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,29 +313,6 @@
             this.backgroundSky.Size = new System.Drawing.Size(10000, 843);
             this.backgroundSky.TabIndex = 6;
             this.backgroundSky.TabStop = false;
-            this.backgroundSky.Click += new System.EventHandler(this.backgroundSky_Click);
-            // 
-            // brick1
-            // 
-            this.brick1.Image = global::Mario.Properties.Resources.brick;
-            this.brick1.Location = new System.Drawing.Point(1060, 694);
-            this.brick1.Name = "brick1";
-            this.brick1.Size = new System.Drawing.Size(25, 25);
-            this.brick1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.brick1.TabIndex = 20;
-            this.brick1.TabStop = false;
-            this.brick1.Tag = "brick";
-            // 
-            // brick2
-            // 
-            this.brick2.Image = global::Mario.Properties.Resources.brick;
-            this.brick2.Location = new System.Drawing.Point(1084, 694);
-            this.brick2.Name = "brick2";
-            this.brick2.Size = new System.Drawing.Size(25, 25);
-            this.brick2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.brick2.TabIndex = 21;
-            this.brick2.TabStop = false;
-            this.brick2.Tag = "brick";
             // 
             // Form1
             // 
@@ -277,6 +320,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1518, 842);
+            this.Controls.Add(this.cannon);
+            this.Controls.Add(this.bullet);
+            this.Controls.Add(this.mushroomRed1);
             this.Controls.Add(this.brick2);
             this.Controls.Add(this.brick1);
             this.Controls.Add(this.labelLivesNum);
@@ -299,6 +345,11 @@
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.move);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.stop);
+            ((System.ComponentModel.ISupportInitialize)(this.bullet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cannon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mushroomRed1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brick2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brick1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin2)).EndInit();
@@ -311,8 +362,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brick1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brick2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +388,10 @@
         private System.Windows.Forms.PictureBox brick1;
         private System.Windows.Forms.PictureBox brick2;
         public System.Windows.Forms.PictureBox backgroundSky;
+        private System.Windows.Forms.PictureBox mushroomRed1;
+        private System.Windows.Forms.Timer bulletTimer;
+        public System.Windows.Forms.PictureBox cannon;
+        public System.Windows.Forms.PictureBox bullet;
     }
 }
 

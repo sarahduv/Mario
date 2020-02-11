@@ -26,6 +26,16 @@ namespace Mario
                 if(bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "coin")
                 {
                     isCoin(worldItems[i]);
+                    return false;
+                }
+                if(bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "mushroomRed")
+                {
+                    isMushroom(worldItems[i]);
+                    return false;
+                }
+                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "bullet")
+                {
+                    isBullet(worldItems[i]);
                     return true;
                 }
                 if (bounds.Bottom == worldItems[i].Bounds.Top)
@@ -58,6 +68,17 @@ namespace Mario
             coin.Tag = "coinInvisible";
             int currentScore = Int32.Parse(world.labelScoreNum.Text) + 1;
             world.labelScoreNum.Text = currentScore.ToString();
+            world.worldItems.Remove(coin);
+        }
+
+        public void isMushroom(PictureBox mushroom)
+        {
+            mushroom.Visible = false;
+            mushroom.Tag = "mushroomRedInvisible";
+            world.mario.Height = world.mario.Height + 4;
+            world.mario.Width = world.mario.Width + 4;
+            world.baseMarioY -= 4;
+            world.worldItems.Remove(mushroom);
         }
 
         public void isQuestion(PictureBox question)
@@ -65,19 +86,41 @@ namespace Mario
             question.Tag = "brick";
             question.Image = Properties.Resources.brick;
 
+            Image[] possiblePopUps = new Image[4] { Properties.Resources.coinTurning, Properties.Resources.mushroomRed, Properties.Resources.coinTurning, Properties.Resources.coinTurning };
+            Random random = new Random();
+            int index = random.Next(possiblePopUps.Length);
+            Image imgToUse = possiblePopUps[index];
+
             var popUp = new PictureBox();
             var newLoc = FormToBackgroundCoords(question.Location, world.backgroundSky);
             popUp.Size = world.coins[0].Size;
             popUp.Visible = true;
-            popUp.Image = Properties.Resources.coinTurning;
+            popUp.Image = imgToUse;
             popUp.SizeMode = PictureBoxSizeMode.StretchImage;
             popUp.BackColor = Color.Transparent;
             popUp.Location = new Point(newLoc.X, newLoc.Y - popUp.Height);
             world.backgroundSky.Controls.Add(question);
             world.backgroundSky.Controls.Add(popUp);
-            popUp.Tag = "coin";
             world.worldItems.Add(popUp);
+            world.coins.Add(popUp);
+
+            if(popUp.Image == possiblePopUps[0] || popUp.Image == possiblePopUps[2] || popUp.Image == possiblePopUps[2])
+            {
+                popUp.Tag = "coin";
+            }
+            else if(popUp.Image == possiblePopUps[1])
+            {
+                popUp.Tag = "mushroomRed";
+            }
      
+        }
+
+        public void isBullet(PictureBox bullet)
+        {
+            bullet.Image = null;
+            world.mario.Height = world.mario.Height - 4;
+            world.mario.Width = world.mario.Width - 4;
+            world.baseMarioY += 4;
         }
 
         public bool isLandingOnItem(PictureBox item)
@@ -87,7 +130,7 @@ namespace Mario
             {
                 if((string)item.Tag == landableItems[i])
                 {
-                    world.baseMarioY -= item.Height;
+                   // world.baseMarioY -= item.Height;
                     return true;
                 }
             }

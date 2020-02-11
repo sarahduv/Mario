@@ -18,6 +18,7 @@ namespace Mario
         private Movement movement;
 
         public int backgroundSpeed = 0;
+        public int bulletSpeed = 15;
         public int baseMarioY = 675;
 
         // movement
@@ -38,7 +39,7 @@ namespace Mario
             InitializeComponent();
             collisions = new Collisions(this);
             movement = new Movement(this);
-            worldItems = new List<PictureBox> { question1, question2, brick1, brick2, coin1, coin2, coin3, coin4 };
+            worldItems = new List<PictureBox> { question1, question2, brick1, brick2, coin1, coin2, coin3, coin4, mushroomRed1, cannon, bullet };
             clouds = new List<PictureBox> { cloud1, cloud2, cloud3 };
             coins = new List<PictureBox> { coin1, coin2, coin3, coin4 };
             backgroundSky.Controls.Add(cloud1);
@@ -112,9 +113,20 @@ namespace Mario
             }
         }
 
-        private void backgroundSky_Click(object sender, EventArgs e)
+        private void bulletTimer_Tick(object sender, EventArgs e)
         {
-
+            var bullet = new PictureBox();
+            var newLoc = collisions.FormToBackgroundCoords(cannon.Location, backgroundSky);
+            bullet.Height = 26;
+            bullet.Width = 38;
+            bullet.Visible = true;
+            bullet.Image = Properties.Resources.bullet;
+            bullet.SizeMode = PictureBoxSizeMode.StretchImage;
+            bullet.BackColor = Color.Transparent;
+            bullet.Location = new Point(newLoc.X, newLoc.Y - 5);
+            backgroundSky.Controls.Add(cannon);
+            backgroundSky.Controls.Add(bullet);
+              
         }
     }
 }

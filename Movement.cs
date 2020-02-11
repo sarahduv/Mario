@@ -27,6 +27,7 @@ namespace Mario
             {
                 world.clouds[i].Left += world.backgroundSpeed / 3;
             }
+            world.bullet.Left -= world.bulletSpeed;
         }
 
         public void invertImage()

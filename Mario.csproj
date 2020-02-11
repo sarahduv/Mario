@@ -128,5 +128,14 @@
   <ItemGroup>
     <None Include="Assets\marioMirror.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\mushroomRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cannon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\bullet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
