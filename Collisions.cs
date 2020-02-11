@@ -23,7 +23,17 @@ namespace Mario
         {
             for (var i = 0; i < worldItems.Count; i++)
             {
-                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag != "coin")
+                if(bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "coin")
+                {
+                    isCoin(worldItems[i]);
+                    return true;
+                }
+                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "question")
+                {
+                    isQuestion(worldItems[i]);
+                    return true;
+                }
+                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag != "coin" && (string)worldItems[i].Tag != "coinInvisible")
                 {
                     return true;
                 }
@@ -37,40 +47,40 @@ namespace Mario
         }
 
 
-        public bool isCoin(PictureBox mario, List<PictureBox> worldItems)
+        public void isCoin(PictureBox coin)
         {
-            for (var i = 0; i < worldItems.Count; i++)
-            {
-                if (mario.Bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "coin")
-                {
-                    worldItems[i].Visible = false;
-                    worldItems[i].Tag = null;
-                    return true;
-                }
-            }
-            return false;
+            coin.Visible = false;
+            coin.Tag = "coinInvisible";
+            int currentScore = Int32.Parse(world.labelScoreNum.Text) + 1;
+            world.labelScoreNum.Text = currentScore.ToString();
+        }
+
+        public void isQuestion(PictureBox question)
+        {
+            question.Tag = "brick";
+            question.Image = Properties.Resources.brick;
         }
 
 
 
-     /*   private void bounce(PictureBox mario, string direction)
-        {
-            int bounce = 5;
+        /*   private void bounce(PictureBox mario, string direction)
+           {
+               int bounce = 5;
 
-            for(var i = 0; i < bounceFactor; i++)
-            {
-                if(direction == "right")
-                {
-                    mario.Left += bounce;
-                    world.backgroundSpeed -= bounce;
-                }
-                else 
-                {
-                    mario.Left -= bounce;
-                    world.backgroundSpeed += bounce;
-                }
-                
-            }
-        }*/
+               for(var i = 0; i < bounceFactor; i++)
+               {
+                   if(direction == "right")
+                   {
+                       mario.Left += bounce;
+                       world.backgroundSpeed -= bounce;
+                   }
+                   else 
+                   {
+                       mario.Left -= bounce;
+                       world.backgroundSpeed += bounce;
+                   }
+
+               }
+           }*/
     }
 }

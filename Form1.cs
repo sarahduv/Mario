@@ -47,12 +47,6 @@ namespace Mario
 
         private void movementTimer_Tick(object sender, EventArgs e)
         {
-            if (collisions.isCoin(mario, worldItems))
-            {
-                int currentScore = Int32.Parse(labelScoreNum.Text) + 1;
-                labelScoreNum.Text = currentScore.ToString();
-            }
-
             if (marioLeft && !collisions.isColliding(mario.Bounds.MoveLeft(10), worldItems)) { backgroundSpeed = 10; }
             else if (marioRight && !collisions.isColliding(mario.Bounds.MoveRight(10), worldItems)) { backgroundSpeed = -10; }
             else { backgroundSpeed = 0; }

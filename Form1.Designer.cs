@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.movementTimer = new System.Windows.Forms.Timer(this.components);
             this.gravityTimer = new System.Windows.Forms.Timer(this.components);
+            this.labelScore = new System.Windows.Forms.Label();
+            this.labelLives = new System.Windows.Forms.Label();
+            this.labelScoreNum = new System.Windows.Forms.Label();
+            this.labelLivesNum = new System.Windows.Forms.Label();
+            this.coin4 = new System.Windows.Forms.PictureBox();
+            this.coin3 = new System.Windows.Forms.PictureBox();
+            this.coin2 = new System.Windows.Forms.PictureBox();
             this.coin1 = new System.Windows.Forms.PictureBox();
             this.cloud3 = new System.Windows.Forms.PictureBox();
             this.cloud2 = new System.Windows.Forms.PictureBox();
@@ -40,13 +47,9 @@
             this.question2 = new System.Windows.Forms.PictureBox();
             this.cloud1 = new System.Windows.Forms.PictureBox();
             this.backgroundSky = new System.Windows.Forms.PictureBox();
-            this.coin2 = new System.Windows.Forms.PictureBox();
-            this.coin3 = new System.Windows.Forms.PictureBox();
-            this.coin4 = new System.Windows.Forms.PictureBox();
-            this.labelScore = new System.Windows.Forms.Label();
-            this.labelLives = new System.Windows.Forms.Label();
-            this.labelScoreNum = new System.Windows.Forms.Label();
-            this.labelLivesNum = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.coin4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud2)).BeginInit();
@@ -56,9 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin4)).BeginInit();
             this.SuspendLayout();
             // 
             // movementTimer
@@ -71,6 +71,79 @@
             this.gravityTimer.Enabled = true;
             this.gravityTimer.Interval = 10;
             this.gravityTimer.Tick += new System.EventHandler(this.gravityTimer_Tick);
+            // 
+            // labelScore
+            // 
+            this.labelScore.AutoSize = true;
+            this.labelScore.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScore.Location = new System.Drawing.Point(22, 19);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(111, 35);
+            this.labelScore.TabIndex = 15;
+            this.labelScore.Text = "Score:";
+            // 
+            // labelLives
+            // 
+            this.labelLives.AutoSize = true;
+            this.labelLives.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLives.Location = new System.Drawing.Point(189, 19);
+            this.labelLives.Name = "labelLives";
+            this.labelLives.Size = new System.Drawing.Size(100, 35);
+            this.labelLives.TabIndex = 16;
+            this.labelLives.Text = "Lives:";
+            // 
+            // labelScoreNum
+            // 
+            this.labelScoreNum.AutoSize = true;
+            this.labelScoreNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScoreNum.Location = new System.Drawing.Point(130, 19);
+            this.labelScoreNum.Name = "labelScoreNum";
+            this.labelScoreNum.Size = new System.Drawing.Size(32, 35);
+            this.labelScoreNum.TabIndex = 17;
+            this.labelScoreNum.Text = "0";
+            // 
+            // labelLivesNum
+            // 
+            this.labelLivesNum.AutoSize = true;
+            this.labelLivesNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLivesNum.Location = new System.Drawing.Point(286, 19);
+            this.labelLivesNum.Name = "labelLivesNum";
+            this.labelLivesNum.Size = new System.Drawing.Size(29, 35);
+            this.labelLivesNum.TabIndex = 19;
+            this.labelLivesNum.Text = "3";
+            // 
+            // coin4
+            // 
+            this.coin4.Image = global::Mario.Properties.Resources.coinTurning;
+            this.coin4.Location = new System.Drawing.Point(1104, 588);
+            this.coin4.Name = "coin4";
+            this.coin4.Size = new System.Drawing.Size(25, 25);
+            this.coin4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin4.TabIndex = 14;
+            this.coin4.TabStop = false;
+            this.coin4.Tag = "coin";
+            // 
+            // coin3
+            // 
+            this.coin3.Image = global::Mario.Properties.Resources.coinTurning;
+            this.coin3.Location = new System.Drawing.Point(1073, 588);
+            this.coin3.Name = "coin3";
+            this.coin3.Size = new System.Drawing.Size(25, 25);
+            this.coin3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin3.TabIndex = 13;
+            this.coin3.TabStop = false;
+            this.coin3.Tag = "coin";
+            // 
+            // coin2
+            // 
+            this.coin2.Image = global::Mario.Properties.Resources.coinTurning;
+            this.coin2.Location = new System.Drawing.Point(1042, 588);
+            this.coin2.Name = "coin2";
+            this.coin2.Size = new System.Drawing.Size(25, 25);
+            this.coin2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin2.TabIndex = 12;
+            this.coin2.TabStop = false;
+            this.coin2.Tag = "coin";
             // 
             // coin1
             // 
@@ -167,79 +240,6 @@
             this.backgroundSky.TabIndex = 6;
             this.backgroundSky.TabStop = false;
             // 
-            // coin2
-            // 
-            this.coin2.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin2.Location = new System.Drawing.Point(1042, 588);
-            this.coin2.Name = "coin2";
-            this.coin2.Size = new System.Drawing.Size(25, 25);
-            this.coin2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.coin2.TabIndex = 12;
-            this.coin2.TabStop = false;
-            this.coin2.Tag = "coin";
-            // 
-            // coin3
-            // 
-            this.coin3.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin3.Location = new System.Drawing.Point(1073, 588);
-            this.coin3.Name = "coin3";
-            this.coin3.Size = new System.Drawing.Size(25, 25);
-            this.coin3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.coin3.TabIndex = 13;
-            this.coin3.TabStop = false;
-            this.coin3.Tag = "coin";
-            // 
-            // coin4
-            // 
-            this.coin4.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin4.Location = new System.Drawing.Point(1104, 588);
-            this.coin4.Name = "coin4";
-            this.coin4.Size = new System.Drawing.Size(25, 25);
-            this.coin4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.coin4.TabIndex = 14;
-            this.coin4.TabStop = false;
-            this.coin4.Tag = "coin";
-            // 
-            // labelScore
-            // 
-            this.labelScore.AutoSize = true;
-            this.labelScore.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelScore.Location = new System.Drawing.Point(22, 19);
-            this.labelScore.Name = "labelScore";
-            this.labelScore.Size = new System.Drawing.Size(111, 35);
-            this.labelScore.TabIndex = 15;
-            this.labelScore.Text = "Score:";
-            // 
-            // labelLives
-            // 
-            this.labelLives.AutoSize = true;
-            this.labelLives.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLives.Location = new System.Drawing.Point(189, 19);
-            this.labelLives.Name = "labelLives";
-            this.labelLives.Size = new System.Drawing.Size(100, 35);
-            this.labelLives.TabIndex = 16;
-            this.labelLives.Text = "Lives:";
-            // 
-            // labelScoreNum
-            // 
-            this.labelScoreNum.AutoSize = true;
-            this.labelScoreNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelScoreNum.Location = new System.Drawing.Point(130, 19);
-            this.labelScoreNum.Name = "labelScoreNum";
-            this.labelScoreNum.Size = new System.Drawing.Size(32, 35);
-            this.labelScoreNum.TabIndex = 17;
-            this.labelScoreNum.Text = "0";
-            // 
-            // labelLivesNum
-            // 
-            this.labelLivesNum.AutoSize = true;
-            this.labelLivesNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLivesNum.Location = new System.Drawing.Point(286, 19);
-            this.labelLivesNum.Name = "labelLivesNum";
-            this.labelLivesNum.Size = new System.Drawing.Size(29, 35);
-            this.labelLivesNum.TabIndex = 19;
-            this.labelLivesNum.Text = "3";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +266,9 @@
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.move);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.stop);
+            ((System.ComponentModel.ISupportInitialize)(this.coin4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud2)).EndInit();
@@ -275,9 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,8 +300,8 @@
         private System.Windows.Forms.PictureBox coin4;
         private System.Windows.Forms.Label labelScore;
         private System.Windows.Forms.Label labelLives;
-        private System.Windows.Forms.Label labelScoreNum;
-        private System.Windows.Forms.Label labelLivesNum;
+        public System.Windows.Forms.Label labelScoreNum;
+        public System.Windows.Forms.Label labelLivesNum;
     }
 }
 
