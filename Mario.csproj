@@ -54,6 +54,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Movement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -90,6 +91,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\questionGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cloud8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\coinTurning.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
