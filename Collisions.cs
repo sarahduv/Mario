@@ -12,7 +12,7 @@ namespace Mario
     class Collisions
     {
         private Form1 world;
-        private int bounceFactor = 1;
+        //private int bounceFactor = 1;
 
         public Collisions(Form1 form)
         {
@@ -23,7 +23,7 @@ namespace Mario
         {
             for (var i = 0; i < worldItems.Count; i++)
             {
-                if (bounds.IntersectsWith(worldItems[i].Bounds))
+                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag != "coin")
                 {
                     return true;
                 }
@@ -35,6 +35,21 @@ namespace Mario
         {
             return isColliding(mario.Bounds, worldItems);
         }
+
+        public bool isCoin(PictureBox mario, List<PictureBox> worldItems)
+        {
+            for (var i = 0; i < worldItems.Count; i++)
+            {
+                if (mario.Bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "coin")
+                {
+                    worldItems[i].Visible = false;
+                    worldItems[i].Tag = null;
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
      /*   private void bounce(PictureBox mario, string direction)
         {
