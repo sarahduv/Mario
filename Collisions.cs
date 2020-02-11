@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
-
+using System.Drawing;
 
 namespace Mario
 {
@@ -19,34 +19,24 @@ namespace Mario
             world = form;
         }
 
-        public bool collisionLeft(PictureBox mario, List<PictureBox> worldItems)
+        public bool isColliding(Rectangle bounds, List<PictureBox> worldItems)
         {
             for (var i = 0; i < worldItems.Count; i++)
             {
-                if (mario.Bounds.IntersectsWith(worldItems[i].Bounds))
+                if (bounds.IntersectsWith(worldItems[i].Bounds))
                 {
-                    bounce(mario, "right");
                     return true;
                 }
             }
             return false;
         }
 
-        public bool collisionRight(PictureBox mario, List<PictureBox> worldItems)
+        public bool isColliding(PictureBox mario, List<PictureBox> worldItems)
         {
-            for (var i = 0; i < worldItems.Count; i++)
-            {
-                if (mario.Bounds.IntersectsWith(worldItems[i].Bounds))
-                {
-                    Debug.Write("collision right");
-                    bounce(mario, "left");
-                    return true;
-                }
-            }
-            return false;
+            return isColliding(mario.Bounds, worldItems);
         }
 
-        private void bounce(PictureBox mario, string direction)
+     /*   private void bounce(PictureBox mario, string direction)
         {
             int bounce = 5;
 
@@ -64,6 +54,6 @@ namespace Mario
                 }
                 
             }
-        }
+        }*/
     }
 }

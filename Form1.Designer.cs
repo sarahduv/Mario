@@ -30,23 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.container = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mario = new System.Windows.Forms.PictureBox();
             this.background1 = new System.Windows.Forms.PictureBox();
             this.background2 = new System.Windows.Forms.PictureBox();
             this.movementTimer = new System.Windows.Forms.Timer(this.components);
             this.gravityTimer = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // container
             // 
+            this.container.BackColor = System.Drawing.Color.Transparent;
             this.container.Controls.Add(this.pictureBox2);
             this.container.Controls.Add(this.pictureBox1);
             this.container.Controls.Add(this.mario);
@@ -57,9 +58,29 @@
             this.container.Size = new System.Drawing.Size(1000, 650);
             this.container.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Mario.Properties.Resources.questionGIF;
+            this.pictureBox2.Location = new System.Drawing.Point(280, 557);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Mario.Properties.Resources.questionGIF;
+            this.pictureBox1.Location = new System.Drawing.Point(653, 557);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // mario
             // 
-            this.mario.BackColor = System.Drawing.Color.White;
+            this.mario.BackColor = System.Drawing.Color.Transparent;
             this.mario.Image = global::Mario.Properties.Resources.mario;
             this.mario.Location = new System.Drawing.Point(370, 570);
             this.mario.Name = "mario";
@@ -98,27 +119,8 @@
             // gravityTimer
             // 
             this.gravityTimer.Enabled = true;
+            this.gravityTimer.Interval = 10;
             this.gravityTimer.Tick += new System.EventHandler(this.gravityTimer_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Mario.Properties.Resources.questionGIF;
-            this.pictureBox1.Location = new System.Drawing.Point(653, 557);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Mario.Properties.Resources.questionGIF;
-            this.pictureBox2.Location = new System.Drawing.Point(280, 557);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -132,11 +134,11 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.move);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.stop);
             this.container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

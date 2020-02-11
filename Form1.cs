@@ -22,9 +22,10 @@ namespace Mario
         public bool marioLeft = false;
         public bool marioRight = false;
         // jumping
-        public int force;
-        public int gravity;
+        public int jumpForce = 0;
+        public int gravityForce = 15;
         public bool marioJumping = false;
+
         //items
         public List<PictureBox> worldItems;
 
@@ -38,8 +39,9 @@ namespace Mario
 
         private void movementTimer_Tick(object sender, EventArgs e)
         {
-            if (marioLeft && !collisions.collisionLeft(mario, worldItems)) { backgroundSpeed = 10; }
-            if (marioRight && !collisions.collisionRight(mario, worldItems)) { backgroundSpeed = -10; }
+            if (marioLeft && !collisions.isColliding(mario.Bounds.MoveLeft(10), worldItems)) { backgroundSpeed = 10; }
+            else if (marioRight && !collisions.isColliding(mario.Bounds.MoveRight(10), worldItems)) { backgroundSpeed = -10; }
+            else { backgroundSpeed = 0; }
 
             background1.Left += backgroundSpeed;
             background2.Left += backgroundSpeed;
@@ -59,7 +61,19 @@ namespace Mario
 
         private void gravityTimer_Tick(object sender, EventArgs e)
         {
+            var newHeight = mario.Location.Y + gravityForce - jumpForce;
+            if (newHeight > baseMarioY)
+            {
+                newHeight = baseMarioY;
+                jumpForce = 0;
+            }
 
+            mario.Location = new Point(mario.Location.X, newHeight);
+
+            if (jumpForce > 0)
+            {
+                jumpForce--;
+            }
         }
 
         private void move(object sender, KeyEventArgs e)
@@ -72,9 +86,12 @@ namespace Mario
                 case Keys.Right:
                     marioRight = true;
                     break;
-                case Keys.Down:
+                case Keys.Up:
+                    // Can Jump (only if touching ground)
                     marioJumping = true;
+                    jumpForce = 25;
                     break;
+
             }
         }
 
