@@ -36,6 +36,9 @@
             this.labelScoreNum = new System.Windows.Forms.Label();
             this.labelLivesNum = new System.Windows.Forms.Label();
             this.bulletTimer = new System.Windows.Forms.Timer(this.components);
+            this.redShell = new System.Windows.Forms.PictureBox();
+            this.brick3 = new System.Windows.Forms.PictureBox();
+            this.mushroomGreen = new System.Windows.Forms.PictureBox();
             this.questionWings1 = new System.Windows.Forms.PictureBox();
             this.cannon = new System.Windows.Forms.PictureBox();
             this.mushroomRed1 = new System.Windows.Forms.PictureBox();
@@ -54,7 +57,16 @@
             this.question2 = new System.Windows.Forms.PictureBox();
             this.cloud1 = new System.Windows.Forms.PictureBox();
             this.backgroundSky = new System.Windows.Forms.PictureBox();
-            this.mushroomGreen = new System.Windows.Forms.PictureBox();
+            this.cloud4 = new System.Windows.Forms.PictureBox();
+            this.cloud5 = new System.Windows.Forms.PictureBox();
+            this.cloud6 = new System.Windows.Forms.PictureBox();
+            this.cloud7 = new System.Windows.Forms.PictureBox();
+            this.cloud8 = new System.Windows.Forms.PictureBox();
+            this.question3 = new System.Windows.Forms.PictureBox();
+            this.question4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.redShell)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brick3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mushroomGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionWings1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cannon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mushroomRed1)).BeginInit();
@@ -73,7 +85,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mushroomGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.question3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.question4)).BeginInit();
             this.SuspendLayout();
             // 
             // movementTimer
@@ -91,7 +109,7 @@
             // 
             this.labelScore.AutoSize = true;
             this.labelScore.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelScore.Location = new System.Drawing.Point(22, 19);
+            this.labelScore.Location = new System.Drawing.Point(33, 19);
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(111, 35);
             this.labelScore.TabIndex = 15;
@@ -101,7 +119,7 @@
             // 
             this.labelLives.AutoSize = true;
             this.labelLives.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLives.Location = new System.Drawing.Point(189, 19);
+            this.labelLives.Location = new System.Drawing.Point(209, 19);
             this.labelLives.Name = "labelLives";
             this.labelLives.Size = new System.Drawing.Size(100, 35);
             this.labelLives.TabIndex = 16;
@@ -111,7 +129,7 @@
             // 
             this.labelScoreNum.AutoSize = true;
             this.labelScoreNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelScoreNum.Location = new System.Drawing.Point(130, 19);
+            this.labelScoreNum.Location = new System.Drawing.Point(150, 19);
             this.labelScoreNum.Name = "labelScoreNum";
             this.labelScoreNum.Size = new System.Drawing.Size(32, 35);
             this.labelScoreNum.TabIndex = 17;
@@ -121,7 +139,7 @@
             // 
             this.labelLivesNum.AutoSize = true;
             this.labelLivesNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLivesNum.Location = new System.Drawing.Point(286, 19);
+            this.labelLivesNum.Location = new System.Drawing.Point(329, 19);
             this.labelLivesNum.Name = "labelLivesNum";
             this.labelLivesNum.Size = new System.Drawing.Size(0, 35);
             this.labelLivesNum.TabIndex = 19;
@@ -132,10 +150,43 @@
             this.bulletTimer.Interval = 5000;
             this.bulletTimer.Tick += new System.EventHandler(this.bulletTimer_Tick);
             // 
+            // redShell
+            // 
+            this.redShell.Image = global::Mario.Properties.Resources.redShell;
+            this.redShell.Location = new System.Drawing.Point(1785, 694);
+            this.redShell.Name = "redShell";
+            this.redShell.Size = new System.Drawing.Size(29, 25);
+            this.redShell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.redShell.TabIndex = 29;
+            this.redShell.TabStop = false;
+            this.redShell.Tag = "redShell";
+            // 
+            // brick3
+            // 
+            this.brick3.Image = global::Mario.Properties.Resources.brick;
+            this.brick3.Location = new System.Drawing.Point(1991, 694);
+            this.brick3.Name = "brick3";
+            this.brick3.Size = new System.Drawing.Size(25, 25);
+            this.brick3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.brick3.TabIndex = 28;
+            this.brick3.TabStop = false;
+            this.brick3.Tag = "brick";
+            // 
+            // mushroomGreen
+            // 
+            this.mushroomGreen.Image = global::Mario.Properties.Resources.mushroomGreen;
+            this.mushroomGreen.Location = new System.Drawing.Point(827, 694);
+            this.mushroomGreen.Name = "mushroomGreen";
+            this.mushroomGreen.Size = new System.Drawing.Size(25, 25);
+            this.mushroomGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mushroomGreen.TabIndex = 27;
+            this.mushroomGreen.TabStop = false;
+            this.mushroomGreen.Tag = "mushroomGreen";
+            // 
             // questionWings1
             // 
             this.questionWings1.Image = global::Mario.Properties.Resources.questionWings;
-            this.questionWings1.Location = new System.Drawing.Point(961, 601);
+            this.questionWings1.Location = new System.Drawing.Point(1295, 627);
             this.questionWings1.Name = "questionWings1";
             this.questionWings1.Size = new System.Drawing.Size(65, 33);
             this.questionWings1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -146,7 +197,7 @@
             // cannon
             // 
             this.cannon.Image = global::Mario.Properties.Resources.cannon;
-            this.cannon.Location = new System.Drawing.Point(1179, 651);
+            this.cannon.Location = new System.Drawing.Point(1106, 651);
             this.cannon.Name = "cannon";
             this.cannon.Size = new System.Drawing.Size(60, 68);
             this.cannon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +207,7 @@
             // mushroomRed1
             // 
             this.mushroomRed1.Image = global::Mario.Properties.Resources.mushroomRed;
-            this.mushroomRed1.Location = new System.Drawing.Point(473, 694);
+            this.mushroomRed1.Location = new System.Drawing.Point(532, 694);
             this.mushroomRed1.Name = "mushroomRed1";
             this.mushroomRed1.Size = new System.Drawing.Size(25, 25);
             this.mushroomRed1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,7 +218,7 @@
             // brick2
             // 
             this.brick2.Image = global::Mario.Properties.Resources.brick;
-            this.brick2.Location = new System.Drawing.Point(1360, 694);
+            this.brick2.Location = new System.Drawing.Point(1652, 694);
             this.brick2.Name = "brick2";
             this.brick2.Size = new System.Drawing.Size(25, 25);
             this.brick2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +229,7 @@
             // brick1
             // 
             this.brick1.Image = global::Mario.Properties.Resources.brick;
-            this.brick1.Location = new System.Drawing.Point(1336, 694);
+            this.brick1.Location = new System.Drawing.Point(1628, 694);
             this.brick1.Name = "brick1";
             this.brick1.Size = new System.Drawing.Size(25, 25);
             this.brick1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +240,7 @@
             // tunnel
             // 
             this.tunnel.Image = global::Mario.Properties.Resources.tunnel;
-            this.tunnel.Location = new System.Drawing.Point(1378, 634);
+            this.tunnel.Location = new System.Drawing.Point(1670, 634);
             this.tunnel.Name = "tunnel";
             this.tunnel.Size = new System.Drawing.Size(73, 85);
             this.tunnel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,7 +252,7 @@
             // 
             this.coin4.BackColor = System.Drawing.Color.Transparent;
             this.coin4.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin4.Location = new System.Drawing.Point(1347, 663);
+            this.coin4.Location = new System.Drawing.Point(1639, 663);
             this.coin4.Name = "coin4";
             this.coin4.Size = new System.Drawing.Size(25, 25);
             this.coin4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -213,7 +264,7 @@
             // 
             this.coin3.BackColor = System.Drawing.Color.Transparent;
             this.coin3.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin3.Location = new System.Drawing.Point(788, 588);
+            this.coin3.Location = new System.Drawing.Point(935, 631);
             this.coin3.Name = "coin3";
             this.coin3.Size = new System.Drawing.Size(25, 25);
             this.coin3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -225,7 +276,7 @@
             // 
             this.coin2.BackColor = System.Drawing.Color.Transparent;
             this.coin2.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin2.Location = new System.Drawing.Point(757, 588);
+            this.coin2.Location = new System.Drawing.Point(904, 631);
             this.coin2.Name = "coin2";
             this.coin2.Size = new System.Drawing.Size(25, 25);
             this.coin2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -237,7 +288,7 @@
             // 
             this.coin1.BackColor = System.Drawing.Color.Transparent;
             this.coin1.Image = global::Mario.Properties.Resources.coinTurning;
-            this.coin1.Location = new System.Drawing.Point(726, 588);
+            this.coin1.Location = new System.Drawing.Point(873, 631);
             this.coin1.Name = "coin1";
             this.coin1.Size = new System.Drawing.Size(25, 25);
             this.coin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -249,7 +300,7 @@
             // 
             this.cloud3.BackColor = System.Drawing.Color.Transparent;
             this.cloud3.Image = global::Mario.Properties.Resources.cloud3;
-            this.cloud3.Location = new System.Drawing.Point(1285, 349);
+            this.cloud3.Location = new System.Drawing.Point(1482, 74);
             this.cloud3.Name = "cloud3";
             this.cloud3.Size = new System.Drawing.Size(181, 114);
             this.cloud3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -260,7 +311,7 @@
             // 
             this.cloud2.BackColor = System.Drawing.Color.Transparent;
             this.cloud2.Image = global::Mario.Properties.Resources.cloud2;
-            this.cloud2.Location = new System.Drawing.Point(695, 69);
+            this.cloud2.Location = new System.Drawing.Point(767, 272);
             this.cloud2.Name = "cloud2";
             this.cloud2.Size = new System.Drawing.Size(181, 114);
             this.cloud2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -270,7 +321,7 @@
             // ground
             // 
             this.ground.BackgroundImage = global::Mario.Properties.Resources.ground;
-            this.ground.Location = new System.Drawing.Point(1, 719);
+            this.ground.Location = new System.Drawing.Point(0, 719);
             this.ground.Name = "ground";
             this.ground.Size = new System.Drawing.Size(10000, 123);
             this.ground.TabIndex = 7;
@@ -280,7 +331,7 @@
             // 
             this.mario.BackColor = System.Drawing.Color.Transparent;
             this.mario.Image = global::Mario.Properties.Resources.mario;
-            this.mario.Location = new System.Drawing.Point(548, 672);
+            this.mario.Location = new System.Drawing.Point(621, 672);
             this.mario.Name = "mario";
             this.mario.Size = new System.Drawing.Size(30, 47);
             this.mario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -290,7 +341,7 @@
             // question1
             // 
             this.question1.Image = global::Mario.Properties.Resources.question2GIF;
-            this.question1.Location = new System.Drawing.Point(596, 630);
+            this.question1.Location = new System.Drawing.Point(679, 635);
             this.question1.Name = "question1";
             this.question1.Size = new System.Drawing.Size(25, 25);
             this.question1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -301,7 +352,7 @@
             // question2
             // 
             this.question2.Image = global::Mario.Properties.Resources.question2GIF;
-            this.question2.Location = new System.Drawing.Point(643, 630);
+            this.question2.Location = new System.Drawing.Point(710, 635);
             this.question2.Name = "question2";
             this.question2.Size = new System.Drawing.Size(25, 25);
             this.question2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -313,7 +364,7 @@
             // 
             this.cloud1.BackColor = System.Drawing.Color.Transparent;
             this.cloud1.Image = global::Mario.Properties.Resources.cloud1;
-            this.cloud1.Location = new System.Drawing.Point(159, 166);
+            this.cloud1.Location = new System.Drawing.Point(74, 141);
             this.cloud1.Name = "cloud1";
             this.cloud1.Size = new System.Drawing.Size(181, 114);
             this.cloud1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -329,23 +380,99 @@
             this.backgroundSky.TabIndex = 6;
             this.backgroundSky.TabStop = false;
             // 
-            // mushroomGreen
+            // cloud4
             // 
-            this.mushroomGreen.Image = global::Mario.Properties.Resources.mushroomGreen;
-            this.mushroomGreen.Location = new System.Drawing.Point(851, 694);
-            this.mushroomGreen.Name = "mushroomGreen";
-            this.mushroomGreen.Size = new System.Drawing.Size(25, 25);
-            this.mushroomGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mushroomGreen.TabIndex = 27;
-            this.mushroomGreen.TabStop = false;
-            this.mushroomGreen.Tag = "mushroomGreen";
+            this.cloud4.BackColor = System.Drawing.Color.Transparent;
+            this.cloud4.Image = global::Mario.Properties.Resources.cloud4;
+            this.cloud4.Location = new System.Drawing.Point(1850, 232);
+            this.cloud4.Name = "cloud4";
+            this.cloud4.Size = new System.Drawing.Size(181, 114);
+            this.cloud4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud4.TabIndex = 30;
+            this.cloud4.TabStop = false;
+            // 
+            // cloud5
+            // 
+            this.cloud5.BackColor = System.Drawing.Color.Transparent;
+            this.cloud5.Image = global::Mario.Properties.Resources.cloud5;
+            this.cloud5.Location = new System.Drawing.Point(2230, 57);
+            this.cloud5.Name = "cloud5";
+            this.cloud5.Size = new System.Drawing.Size(181, 114);
+            this.cloud5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud5.TabIndex = 31;
+            this.cloud5.TabStop = false;
+            // 
+            // cloud6
+            // 
+            this.cloud6.BackColor = System.Drawing.Color.Transparent;
+            this.cloud6.Image = global::Mario.Properties.Resources.cloud6;
+            this.cloud6.Location = new System.Drawing.Point(3075, 239);
+            this.cloud6.Name = "cloud6";
+            this.cloud6.Size = new System.Drawing.Size(181, 114);
+            this.cloud6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud6.TabIndex = 32;
+            this.cloud6.TabStop = false;
+            // 
+            // cloud7
+            // 
+            this.cloud7.BackColor = System.Drawing.Color.Transparent;
+            this.cloud7.Image = global::Mario.Properties.Resources.cloud7;
+            this.cloud7.Location = new System.Drawing.Point(3769, 61);
+            this.cloud7.Name = "cloud7";
+            this.cloud7.Size = new System.Drawing.Size(181, 114);
+            this.cloud7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud7.TabIndex = 33;
+            this.cloud7.TabStop = false;
+            // 
+            // cloud8
+            // 
+            this.cloud8.BackColor = System.Drawing.Color.Transparent;
+            this.cloud8.Image = global::Mario.Properties.Resources.cloud7;
+            this.cloud8.Location = new System.Drawing.Point(4094, 273);
+            this.cloud8.Name = "cloud8";
+            this.cloud8.Size = new System.Drawing.Size(181, 114);
+            this.cloud8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud8.TabIndex = 34;
+            this.cloud8.TabStop = false;
+            // 
+            // question3
+            // 
+            this.question3.Image = global::Mario.Properties.Resources.question2GIF;
+            this.question3.Location = new System.Drawing.Point(741, 635);
+            this.question3.Name = "question3";
+            this.question3.Size = new System.Drawing.Size(25, 25);
+            this.question3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.question3.TabIndex = 35;
+            this.question3.TabStop = false;
+            this.question3.Tag = "question";
+            // 
+            // question4
+            // 
+            this.question4.Image = global::Mario.Properties.Resources.question2GIF;
+            this.question4.Location = new System.Drawing.Point(648, 635);
+            this.question4.Name = "question4";
+            this.question4.Size = new System.Drawing.Size(25, 25);
+            this.question4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.question4.TabIndex = 36;
+            this.question4.TabStop = false;
+            this.question4.Tag = "question";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1518, 842);
+            this.Controls.Add(this.question4);
+            this.Controls.Add(this.question3);
+            this.Controls.Add(this.cloud8);
+            this.Controls.Add(this.cloud7);
+            this.Controls.Add(this.cloud6);
+            this.Controls.Add(this.cloud5);
+            this.Controls.Add(this.cloud4);
+            this.Controls.Add(this.redShell);
+            this.Controls.Add(this.brick3);
             this.Controls.Add(this.mushroomGreen);
             this.Controls.Add(this.questionWings1);
             this.Controls.Add(this.cannon);
@@ -373,6 +500,9 @@
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.move);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.stop);
+            ((System.ComponentModel.ISupportInitialize)(this.redShell)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brick3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mushroomGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionWings1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cannon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mushroomRed1)).EndInit();
@@ -391,7 +521,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mushroomGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.question3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.question4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,6 +560,15 @@
         private System.Windows.Forms.PictureBox tunnel;
         public System.Windows.Forms.PictureBox questionWings1;
         private System.Windows.Forms.PictureBox mushroomGreen;
+        private System.Windows.Forms.PictureBox brick3;
+        private System.Windows.Forms.PictureBox redShell;
+        private System.Windows.Forms.PictureBox cloud4;
+        private System.Windows.Forms.PictureBox cloud5;
+        private System.Windows.Forms.PictureBox cloud6;
+        private System.Windows.Forms.PictureBox cloud7;
+        private System.Windows.Forms.PictureBox cloud8;
+        private System.Windows.Forms.PictureBox question3;
+        private System.Windows.Forms.PictureBox question4;
     }
 }
 

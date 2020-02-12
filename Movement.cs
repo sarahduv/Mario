@@ -31,10 +31,7 @@ namespace Mario
                 }
                 world.worldItems[i].Left += world.backgroundSpeed;
             }
-            for (var i = 0; i < world.clouds.Count; i++)
-            {
-                world.clouds[i].Left += world.backgroundSpeed / 3;
-            }
+            for (var i = 0; i < world.clouds.Count; i++) { world.clouds[i].Left += world.backgroundSpeed / 3; }
         }
 
         public void invertImage()

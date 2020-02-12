@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-
+using Mario.Interfaces;
 
 namespace Mario
 {
@@ -20,12 +20,14 @@ namespace Mario
 
         public int backgroundSpeed = 0;
         public int bulletSpeed = 15;
-        public int baseMarioY = 675;
+        public int baseMarioY = 672;
         public int lives = 3;
 
         // movement
         public bool marioLeft = false;
         public bool marioRight = false;
+        public bool marioTouchingFloor = false;
+
         // jumping
         public int jumpForce = 0;
         public int gravityForce = 15;
@@ -34,6 +36,8 @@ namespace Mario
         public List<PictureBox> worldItems;
         public List<PictureBox> clouds;
         public List<PictureBox> coins;
+        public List<Label> labels;
+        
 
         public Form1()
 
@@ -42,14 +46,13 @@ namespace Mario
             collisions = new Collisions(this);
             movement = new Movement(this);
             tools = new Tools(this);
-            worldItems = new List<PictureBox> { question1, question2, questionWings1, brick1, brick2, coin1, coin2, coin3, coin4, mushroomRed1, mushroomGreen, cannon, tunnel };
-            clouds = new List<PictureBox> { cloud1, cloud2, cloud3 };
+            worldItems = new List<PictureBox> { question1, question2, question3, question4, questionWings1, brick1, brick2, coin1, coin2, coin3, coin4, mushroomRed1, mushroomGreen, cannon, tunnel, redShell };
+            clouds = new List<PictureBox> { cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8 };
             coins = new List<PictureBox> { coin1, coin2, coin3, coin4 };
-            backgroundSky.Controls.Add(cloud1);
-            backgroundSky.Controls.Add(cloud2);
-            backgroundSky.Controls.Add(cloud3);
+            labels = new List<Label> { labelScore, labelScoreNum, labelLives, labelLivesNum };
             backgroundSky.Controls.Add(mario);
-            backgroundSky.Controls.Add(cannon);
+            backgroundSky.Controls.AddRange(clouds.ToArray());
+            backgroundSky.Controls.AddRange(worldItems.ToArray());
             labelLivesNum.Text = lives.ToString();
         }
 
@@ -58,7 +61,7 @@ namespace Mario
             if (marioLeft && !collisions.isColliding(mario.Bounds.MoveLeft(10), worldItems)) { backgroundSpeed = 10; }
             else if (marioRight && !collisions.isColliding(mario.Bounds.MoveRight(10), worldItems)) { backgroundSpeed = -10; }
             else { backgroundSpeed = 0; }
-            if (marioJumping && collisions.isColliding(mario.Bounds.MoveUp(10), worldItems)) { jumpForce = 0; }
+            //if (marioJumping && collisions.isColliding(mario.Bounds.MoveUp(10), worldItems)) { jumpForce = 0; }
 
             movement.moveItems();
 
@@ -66,12 +69,47 @@ namespace Mario
 
         private void gravityTimer_Tick(object sender, EventArgs e)
         {
-            var newHeight = mario.Location.Y + gravityForce - jumpForce;
-            if (newHeight > baseMarioY)
+            var amountToMoveUp = jumpForce - gravityForce;
+            var newHeight = mario.Location.Y - amountToMoveUp;
+            if (newHeight >= baseMarioY)
             {
                 newHeight = baseMarioY;
+                marioTouchingFloor = true;
                 jumpForce = 0;
             }
+
+            foreach (var collidable in collisions.getCollidables())
+            {
+                // Mario is touching a collidable
+                if (collidable.Bounds.IntersectsWith(mario.Bounds.MoveUp(amountToMoveUp)))
+                {
+                    /*if (collidable is IEdible)
+                    {
+                        ((IEdible)collidable).eat();
+                    }*/
+
+                    if (amountToMoveUp > 0)
+                    {
+                        // we are moving up, we hit a ceiling
+                        newHeight = collidable.Bounds.Bottom;
+                        jumpForce = gravityForce;
+
+                        if ((string)collidable.Tag == "question")
+                        {
+                            // popping the question
+                            collisions.isQuestion(collidable);
+                        }
+                    }
+                    else
+                    {
+                        // we are moving down, we hit a floor
+                        marioTouchingFloor = true;
+                        newHeight = collidable.Bounds.Top - mario.Height;
+                        jumpForce = 0;
+                    }                 
+                }
+            }
+            
 
             mario.Location = new Point(mario.Location.X, newHeight);
 
@@ -94,10 +132,11 @@ namespace Mario
                     marioRight = true;
                     break;
                 case Keys.Up:
-                    if(mario.Location.Y == baseMarioY)
+                    if(marioTouchingFloor)
                     {
                         marioJumping = true;
                         jumpForce = 30;
+                        marioTouchingFloor = false;
                     }
                     break;
             }

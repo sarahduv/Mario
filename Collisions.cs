@@ -41,16 +41,17 @@ namespace Mario
                 if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "bullet")
                 {
                     isBullet(worldItems[i]);
-                    return true;
+                    return false;
                 }
                 if (bounds.Bottom == worldItems[i].Bounds.Top)
                 {
-                    return isLandingOnItem(worldItems[i]);
+                    //return isLandingOnItem(worldItems[i]);
+                    return false;
                 }
 
                 if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "question")
                 {
-                    isQuestion(worldItems[i]);
+                    //isQuestion(worldItems[i]);
                     return true;
                 }
                 if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag != "coin" && (string)worldItems[i].Tag != "coinInvisible")
@@ -130,7 +131,7 @@ namespace Mario
             {
                 popUp.Tag = "mushroomRed";
             }
-            else if (popUp.Image == possiblePopUps[4])
+            else if (popUp.Image == possiblePopUps[3])
             {
                 popUp.Tag = "mushroomGreen";
             }
@@ -164,6 +165,11 @@ namespace Mario
         public Point FormToBackgroundCoords(Point src, Control background)
         {
             return new Point(src.X - background.Location.X, src.Y - background.Location.Y);
+        }
+
+        public List<PictureBox> getCollidables()
+        {
+            return world.worldItems.Where(x => (string)x.Tag != "coin").ToList();
         }
 
         /*   private void bounce(PictureBox mario, string direction)
