@@ -121,8 +121,8 @@
   <data name="cannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\cannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="question2GIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\question2GIF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="redShell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\redShell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mushroomGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\mushroomGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,23 +133,29 @@
   <data name="cloud1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\cloud1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\brick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mushroomRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\mushroomRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tree1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\tree1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="questionGIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\questionGIF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="marioMirror" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\marioMirror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tunnel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\tunnel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cloud6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\cloud6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="marioMirror" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\marioMirror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cloud7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\cloud7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\ground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,8 +169,8 @@
   <data name="coinTurning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\coinTurning.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cloud7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\cloud7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="question2GIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\question2GIF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cloud5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\cloud5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,13 +184,16 @@
   <data name="cloud8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\cloud8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tunnel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\tunnel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cloud6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\cloud6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mushroomRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\mushroomRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cloud4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\cloud4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="redShell" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\redShell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\tree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
