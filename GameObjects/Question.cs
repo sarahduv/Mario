@@ -39,7 +39,7 @@ namespace Mario.GameObjects
             WorldObject popUp = (WorldObject)Activator.CreateInstance(typeToUse);
             //var newLoc = FormToBackgroundCoords(question.Location, world.backgroundSky);
             MainForm.instance.backgroundSky.Controls.Add(popUp);
-            MainForm.instance.worldItems.Add(popUp);
+            WorldObject.allWorldObjects.Add(popUp);
             popUp.Location = new Point(Location.X, Location.Y - popUp.Height);
 
         }

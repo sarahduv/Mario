@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Mario.Interfaces;
+using Mario.GameObjects;
 
 namespace Mario
 {
@@ -23,13 +24,13 @@ namespace Mario
         {
             
             world.ground.Left += world.backgroundSpeed;
-            for (var i = 0; i < world.worldItems.Count; i++)
+            for (var i = 0; i < WorldObject.allWorldObjects.Count; i++)
             {
-                if (world.worldItems[i] is ITickMovable)
+                if (WorldObject.allWorldObjects[i] is ITickMovable)
                 {
-                    ((ITickMovable)world.worldItems[i]).moveTick();
+                    ((ITickMovable)WorldObject.allWorldObjects[i]).moveTick();
                 }
-                world.worldItems[i].Left += world.backgroundSpeed;
+                WorldObject.allWorldObjects[i].Left += world.backgroundSpeed;
             }
             for (var i = 0; i < world.clouds.Count; i++) { world.clouds[i].Left += world.backgroundSpeed / 3; }
         }

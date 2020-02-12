@@ -24,7 +24,7 @@ namespace Mario.GameObjects
             this.Parent.Controls.Remove(this);
             int currentScore = Int32.Parse(MainForm.instance.labelScoreNum.Text) + 1;
             MainForm.instance.labelScoreNum.Text = currentScore.ToString();
-            MainForm.instance.worldItems.Remove(this);
+            WorldObject.allWorldObjects.Remove(this);
         }
                 
     }

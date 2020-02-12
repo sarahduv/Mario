@@ -31,7 +31,7 @@ namespace Mario.GameObjects
         public void eat()
         {
             this.Parent.Controls.Remove(this);
-            MainForm.instance.worldItems.Remove(this);
+            WorldObject.allWorldObjects.Remove(this);
             MainForm.instance.mario.Height = MainForm.instance.mario.Height - 4;
             MainForm.instance.mario.Width = MainForm.instance.mario.Width - 4;
             MainForm.instance.baseMarioY += 4;

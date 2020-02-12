@@ -36,7 +36,6 @@ namespace Mario
         public int gravityForce = 15;
         public bool marioJumping = false;
         //items
-        public List<PictureBox> worldItems;
         public List<PictureBox> clouds;
         public List<PictureBox> coins;
         public List<Label> labels;
@@ -50,20 +49,18 @@ namespace Mario
             collisions = new Collisions(this);
             movement = new Movement(this);
             tools = new Tools(this);
-            worldItems = new List<PictureBox> { cannon};
-            worldItems.AddRange(WorldObject.allWorldObjects.ToArray());
-            clouds = new List<PictureBox> { cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8 };
+            clouds = new List<PictureBox> { };
             labels = new List<Label> { labelScore, labelScoreNum, labelLives, labelLivesNum };
             backgroundSky.Controls.Add(mario);
             backgroundSky.Controls.AddRange(clouds.ToArray());
-            backgroundSky.Controls.AddRange(worldItems.ToArray());
+            backgroundSky.Controls.AddRange(WorldObject.allWorldObjects.ToArray());
             labelLivesNum.Text = lives.ToString();
         }
 
         private void movementTimer_Tick(object sender, EventArgs e)
         {
-            if (marioLeft && !collisions.isColliding(mario.Bounds.MoveLeft(10), worldItems)) { backgroundSpeed = 10; }
-            else if (marioRight && !collisions.isColliding(mario.Bounds.MoveRight(10), worldItems)) { backgroundSpeed = -10; }
+            if (marioLeft && !collisions.isColliding(mario.Bounds.MoveLeft(10), WorldObject.allWorldObjects)) { backgroundSpeed = 10; }
+            else if (marioRight && !collisions.isColliding(mario.Bounds.MoveRight(10), WorldObject.allWorldObjects)) { backgroundSpeed = -10; }
             else { backgroundSpeed = 0; }
             //if (marioJumping && collisions.isColliding(mario.Bounds.MoveUp(10), worldItems)) { jumpForce = 0; }
 
@@ -163,19 +160,13 @@ namespace Mario
 
         private void bulletTimer_Tick(object sender, EventArgs e)
         {
-            var bullet = new PictureBox();
-            var newLoc = collisions.FormToBackgroundCoords(cannon.Location, backgroundSky);
-            bullet.Height = 26;
-            bullet.Width = 38;
-            bullet.Visible = true;
-            bullet.Image = Properties.Resources.bullet;
-            bullet.SizeMode = PictureBoxSizeMode.StretchImage;
-            bullet.BackColor = Color.Transparent;
-            bullet.Tag = "bullet";
-            bullet.Location = new Point(newLoc.X, newLoc.Y + 5);      
-            backgroundSky.Controls.Add(bullet);
-            worldItems.Add(bullet);
-              
+            foreach (var collidable in collisions.getCollidables())
+            {
+                if (collidable is IFiresBullets)
+                {
+                    ((IFiresBullets)collidable).maybeFire();
+                }
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Mario
             world = form;
         }
 
-        public bool isColliding(Rectangle bounds, List<PictureBox> worldItems)
+        public bool isColliding(Rectangle bounds, List<WorldObject> worldItems)
         {
             for (var i = 0; i < worldItems.Count; i++)
             {
@@ -34,18 +34,16 @@ namespace Mario
                         ((IEdible)worldItems[i]).eat();
                         return false;
                     }
+                    if (worldItems[i] is Tree)
+                    {
+                        return false;
+                    }
                 }
                 if (bounds.Bottom == worldItems[i].Bounds.Top)
                 {
-                    //return isLandingOnItem(worldItems[i]);
                     return false;
                 }
 
-                /*if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "question")
-                {
-                    //isQuestion(worldItems[i]);
-                    return true;*/
-                //}
                 if (bounds.IntersectsWith(worldItems[i].Bounds))
                 {
                     return true;
@@ -54,34 +52,16 @@ namespace Mario
             return false;
         }
 
-        public bool isColliding(PictureBox mario, List<PictureBox> worldItems)
-        {
-            return isColliding(mario.Bounds, worldItems);
-        }
 
-
-        public bool isLandingOnItem(PictureBox item)
-        {
-            String[] landableItems = new string[2] { "question", "brick" };
-            for(var i = 0; i <landableItems.Length; i++)
-            {
-                if((string)item.Tag == landableItems[i])
-                {
-                   // world.baseMarioY -= item.Height;
-                    return true;
-                }
-            }
-            return false;
-        }
 
         public Point FormToBackgroundCoords(Point src, Control background)
         {
             return new Point(src.X - background.Location.X, src.Y - background.Location.Y);
         }
 
-        public List<PictureBox> getCollidables()
+        public List<WorldObject> getCollidables()
         {
-            return world.worldItems.Where(x => (string)x.Tag != "coin").ToList();
+            return WorldObject.allWorldObjects.ToList();
         }
 
         /*   private void bounce(PictureBox mario, string direction)

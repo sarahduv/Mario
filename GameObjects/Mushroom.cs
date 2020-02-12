@@ -39,7 +39,7 @@ namespace Mario.GameObjects
             MainForm.instance.mario.Height = MainForm.instance.mario.Height + 4;
             MainForm.instance.mario.Width = MainForm.instance.mario.Width + 4;
             MainForm.instance.baseMarioY -= 4;
-            MainForm.instance.worldItems.Remove(this);
+            WorldObject.allWorldObjects.Remove(this);
         }
 
 
@@ -57,7 +57,7 @@ namespace Mario.GameObjects
             this.Parent.Controls.Remove(this);
             int currentLives = Int32.Parse(MainForm.instance.labelLivesNum.Text) + 1;
             MainForm.instance.labelLivesNum.Text = currentLives.ToString();
-            MainForm.instance.worldItems.Remove(this);
+            WorldObject.allWorldObjects.Remove(this);
         }
 
         // action for eating

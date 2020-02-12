@@ -48,7 +48,11 @@
   <ItemGroup>
     <Compile Include="Collisions.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="GameObjects\Tree.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Interfaces\IBumpable.cs" />
+    <Compile Include="Interfaces\IFiresBullets.cs" />
     <Compile Include="Interfaces\ITickMovable.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -189,6 +193,11 @@
   <ItemGroup>
     <None Include="Assets\redShell.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Assets\brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\tree1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
