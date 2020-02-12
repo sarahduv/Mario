@@ -16,10 +16,12 @@ namespace Mario
     {
         private Collisions collisions;
         private Movement movement;
+        private Tools tools;
 
         public int backgroundSpeed = 0;
         public int bulletSpeed = 15;
         public int baseMarioY = 675;
+        public int lives = 3;
 
         // movement
         public bool marioLeft = false;
@@ -39,7 +41,8 @@ namespace Mario
             InitializeComponent();
             collisions = new Collisions(this);
             movement = new Movement(this);
-            worldItems = new List<PictureBox> { question1, question2, questionWings1, brick1, brick2, coin1, coin2, coin3, coin4, mushroomRed1, cannon };
+            tools = new Tools(this);
+            worldItems = new List<PictureBox> { question1, question2, questionWings1, brick1, brick2, coin1, coin2, coin3, coin4, mushroomRed1, mushroomGreen, cannon, tunnel };
             clouds = new List<PictureBox> { cloud1, cloud2, cloud3 };
             coins = new List<PictureBox> { coin1, coin2, coin3, coin4 };
             backgroundSky.Controls.Add(cloud1);
@@ -47,6 +50,7 @@ namespace Mario
             backgroundSky.Controls.Add(cloud3);
             backgroundSky.Controls.Add(mario);
             backgroundSky.Controls.Add(cannon);
+            labelLivesNum.Text = lives.ToString();
         }
 
         private void movementTimer_Tick(object sender, EventArgs e)

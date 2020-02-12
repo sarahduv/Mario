@@ -33,6 +33,11 @@ namespace Mario
                     isMushroom(worldItems[i]);
                     return false;
                 }
+                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "mushroomGreen")
+                {
+                    isMushroom(worldItems[i]);
+                    return false;
+                }
                 if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "bullet")
                 {
                     isBullet(worldItems[i]);
@@ -73,11 +78,24 @@ namespace Mario
 
         public void isMushroom(PictureBox mushroom)
         {
-            mushroom.Visible = false;
-            mushroom.Tag = "mushroomRedInvisible";
-            world.mario.Height = world.mario.Height + 4;
-            world.mario.Width = world.mario.Width + 4;
-            world.baseMarioY -= 4;
+            if ((string)mushroom.Tag == "mushroomRed")
+            {
+                mushroom.Visible = false;
+                mushroom.Tag = "mushroomRedInvisible";
+                mushroom.Image = null;
+                world.mario.Height = world.mario.Height + 4;
+                world.mario.Width = world.mario.Width + 4;
+                world.baseMarioY -= 4;
+            }
+            else if ((string)mushroom.Tag == "mushroomGreen")
+            {
+                mushroom.Visible = false;
+                mushroom.Tag = "mushroomGreenInvisible";
+                mushroom.Image = null;
+                int currentLives = Int32.Parse(world.labelLivesNum.Text) + 1;
+                world.labelLivesNum.Text = currentLives.ToString();
+            }
+            
             world.worldItems.Remove(mushroom);
         }
 
@@ -86,7 +104,7 @@ namespace Mario
             question.Tag = "brick";
             question.Image = Properties.Resources.brick;
 
-            Image[] possiblePopUps = new Image[4] { Properties.Resources.coinTurning, Properties.Resources.mushroomRed, Properties.Resources.coinTurning, Properties.Resources.coinTurning };
+            Image[] possiblePopUps = new Image[4] { Properties.Resources.coinTurning, Properties.Resources.mushroomRed, Properties.Resources.coinTurning, Properties.Resources.mushroomGreen };
             Random random = new Random();
             int index = random.Next(possiblePopUps.Length);
             Image imgToUse = possiblePopUps[index];
@@ -104,7 +122,7 @@ namespace Mario
             world.worldItems.Add(popUp);
             world.coins.Add(popUp);
 
-            if(popUp.Image == possiblePopUps[0] || popUp.Image == possiblePopUps[2] || popUp.Image == possiblePopUps[2])
+            if(popUp.Image == possiblePopUps[0] || popUp.Image == possiblePopUps[2])
             {
                 popUp.Tag = "coin";
             }
@@ -112,7 +130,11 @@ namespace Mario
             {
                 popUp.Tag = "mushroomRed";
             }
-     
+            else if (popUp.Image == possiblePopUps[4])
+            {
+                popUp.Tag = "mushroomGreen";
+            }
+
         }
 
         public void isBullet(PictureBox bullet)
@@ -121,6 +143,8 @@ namespace Mario
             world.mario.Height = world.mario.Height - 4;
             world.mario.Width = world.mario.Width - 4;
             world.baseMarioY += 4;
+            world.lives--;
+            world.labelLivesNum.Text = world.lives.ToString(); 
         }
 
         public bool isLandingOnItem(PictureBox item)

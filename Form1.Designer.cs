@@ -54,6 +54,7 @@
             this.question2 = new System.Windows.Forms.PictureBox();
             this.cloud1 = new System.Windows.Forms.PictureBox();
             this.backgroundSky = new System.Windows.Forms.PictureBox();
+            this.mushroomGreen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.questionWings1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cannon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mushroomRed1)).BeginInit();
@@ -72,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mushroomGreen)).BeginInit();
             this.SuspendLayout();
             // 
             // movementTimer
@@ -121,9 +123,8 @@
             this.labelLivesNum.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLivesNum.Location = new System.Drawing.Point(286, 19);
             this.labelLivesNum.Name = "labelLivesNum";
-            this.labelLivesNum.Size = new System.Drawing.Size(29, 35);
+            this.labelLivesNum.Size = new System.Drawing.Size(0, 35);
             this.labelLivesNum.TabIndex = 19;
-            this.labelLivesNum.Text = "3";
             // 
             // bulletTimer
             // 
@@ -328,12 +329,24 @@
             this.backgroundSky.TabIndex = 6;
             this.backgroundSky.TabStop = false;
             // 
+            // mushroomGreen
+            // 
+            this.mushroomGreen.Image = global::Mario.Properties.Resources.mushroomGreen;
+            this.mushroomGreen.Location = new System.Drawing.Point(851, 694);
+            this.mushroomGreen.Name = "mushroomGreen";
+            this.mushroomGreen.Size = new System.Drawing.Size(25, 25);
+            this.mushroomGreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mushroomGreen.TabIndex = 27;
+            this.mushroomGreen.TabStop = false;
+            this.mushroomGreen.Tag = "mushroomGreen";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1518, 842);
+            this.Controls.Add(this.mushroomGreen);
             this.Controls.Add(this.questionWings1);
             this.Controls.Add(this.cannon);
             this.Controls.Add(this.mushroomRed1);
@@ -378,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.question2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundSky)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mushroomGreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,6 +423,7 @@
         public System.Windows.Forms.PictureBox cannon;
         private System.Windows.Forms.PictureBox tunnel;
         public System.Windows.Forms.PictureBox questionWings1;
+        private System.Windows.Forms.PictureBox mushroomGreen;
     }
 }
 
