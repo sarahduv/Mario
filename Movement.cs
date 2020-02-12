@@ -5,29 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Mario.Interfaces;
 
 namespace Mario
 {
     class Movement
     {
-        private Form1 world;
+        private MainForm world;
         //private int bounceFactor = 1;
-        private bool floatUp = false;
-        private int floatPivot = 5;
+        
 
-        public Movement(Form1 form)
+        public Movement(MainForm form)
         {
             world = form;
         }
         public void moveItems()
         {
-            moveWings();
+            
             world.ground.Left += world.backgroundSpeed;
             for (var i = 0; i < world.worldItems.Count; i++)
             {
-                if((string)world.worldItems[i].Tag == "bullet")
+                if (world.worldItems[i] is ITickMovable)
                 {
-                    world.worldItems[i].Left -= world.bulletSpeed;
+                    ((ITickMovable)world.worldItems[i]).moveTick();
                 }
                 world.worldItems[i].Left += world.backgroundSpeed;
             }
@@ -43,26 +43,5 @@ namespace Mario
             else { world.mario.Image = Properties.Resources.mario; }
         }
 
-        public void moveWings()
-        { 
-            if(!floatUp && floatPivot < 10)
-            {
-                world.questionWings1.Top += 2;
-                floatPivot++;
-                if (floatPivot == 10)
-                {
-                    floatUp = true;
-                }
-            }
-            else if(floatUp)
-            {
-                floatPivot--;
-                world.questionWings1.Top -= 2;
-                if(floatPivot == 0)
-                {
-                    floatUp = false;
-                }
-            }
-        }
     }
 }

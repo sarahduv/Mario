@@ -8,9 +8,9 @@ namespace Mario
 {
     class Tools
     {
-        private Form1 world;
+        private MainForm world;
 
-        public Tools(Form1 form)
+        public Tools(MainForm form)
         {
             world = form;
         }
