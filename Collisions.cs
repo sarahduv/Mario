@@ -6,55 +6,45 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
+using Mario.GameObjects;
+using Mario.Interfaces;
 
 namespace Mario
 {
     class Collisions
     {
-        private Form1 world;
+        private MainForm world;
         //private int bounceFactor = 1;
 
-        public Collisions(Form1 form)
+        public Collisions(MainForm form)
         {
             world = form;
         }
 
-        public bool isColliding(Rectangle bounds, List<PictureBox> worldItems)
+        public bool isColliding(Rectangle bounds, List<WorldObject> worldItems)
         {
             for (var i = 0; i < worldItems.Count; i++)
             {
-                if(bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "coin")
+                var intersecting = bounds.IntersectsWith(worldItems[i].Bounds);
+
+                if (intersecting)
                 {
-                    isCoin(worldItems[i]);
-                    return false;
-                }
-                if(bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "mushroomRed")
-                {
-                    isMushroom(worldItems[i]);
-                    return false;
-                }
-                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "mushroomGreen")
-                {
-                    isMushroom(worldItems[i]);
-                    return false;
-                }
-                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "bullet")
-                {
-                    isBullet(worldItems[i]);
-                    return false;
+                    if (worldItems[i] is IEdible)
+                    {
+                        ((IEdible)worldItems[i]).eat();
+                        return false;
+                    }
+                    if (worldItems[i] is Tree)
+                    {
+                        return false;
+                    }
                 }
                 if (bounds.Bottom == worldItems[i].Bounds.Top)
                 {
-                    //return isLandingOnItem(worldItems[i]);
                     return false;
                 }
 
-                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag == "question")
-                {
-                    //isQuestion(worldItems[i]);
-                    return true;
-                }
-                if (bounds.IntersectsWith(worldItems[i].Bounds) && (string)worldItems[i].Tag != "coin" && (string)worldItems[i].Tag != "coinInvisible")
+                if (bounds.IntersectsWith(worldItems[i].Bounds))
                 {
                     return true;
                 }
@@ -62,114 +52,16 @@ namespace Mario
             return false;
         }
 
-        public bool isColliding(PictureBox mario, List<PictureBox> worldItems)
-        {
-            return isColliding(mario.Bounds, worldItems);
-        }
 
-
-        public void isCoin(PictureBox coin)
-        {
-            coin.Visible = false;
-            coin.Tag = "coinInvisible";
-            int currentScore = Int32.Parse(world.labelScoreNum.Text) + 1;
-            world.labelScoreNum.Text = currentScore.ToString();
-            world.worldItems.Remove(coin);
-        }
-
-        public void isMushroom(PictureBox mushroom)
-        {
-            if ((string)mushroom.Tag == "mushroomRed")
-            {
-                mushroom.Visible = false;
-                mushroom.Tag = "mushroomRedInvisible";
-                mushroom.Image = null;
-                world.mario.Height = world.mario.Height + 4;
-                world.mario.Width = world.mario.Width + 4;
-                world.baseMarioY -= 4;
-            }
-            else if ((string)mushroom.Tag == "mushroomGreen")
-            {
-                mushroom.Visible = false;
-                mushroom.Tag = "mushroomGreenInvisible";
-                mushroom.Image = null;
-                int currentLives = Int32.Parse(world.labelLivesNum.Text) + 1;
-                world.labelLivesNum.Text = currentLives.ToString();
-            }
-            
-            world.worldItems.Remove(mushroom);
-        }
-
-        public void isQuestion(PictureBox question)
-        {
-            question.Tag = "brick";
-            question.Image = Properties.Resources.brick;
-
-            Image[] possiblePopUps = new Image[4] { Properties.Resources.coinTurning, Properties.Resources.mushroomRed, Properties.Resources.coinTurning, Properties.Resources.mushroomGreen };
-            Random random = new Random();
-            int index = random.Next(possiblePopUps.Length);
-            Image imgToUse = possiblePopUps[index];
-
-            var popUp = new PictureBox();
-            var newLoc = FormToBackgroundCoords(question.Location, world.backgroundSky);
-            popUp.Size = world.coins[0].Size;
-            popUp.Visible = true;
-            popUp.Image = imgToUse;
-            popUp.SizeMode = PictureBoxSizeMode.StretchImage;
-            popUp.BackColor = Color.Transparent;
-            popUp.Location = new Point(newLoc.X, newLoc.Y - popUp.Height);
-            world.backgroundSky.Controls.Add(question);
-            world.backgroundSky.Controls.Add(popUp);
-            world.worldItems.Add(popUp);
-            world.coins.Add(popUp);
-
-            if(popUp.Image == possiblePopUps[0] || popUp.Image == possiblePopUps[2])
-            {
-                popUp.Tag = "coin";
-            }
-            else if(popUp.Image == possiblePopUps[1])
-            {
-                popUp.Tag = "mushroomRed";
-            }
-            else if (popUp.Image == possiblePopUps[3])
-            {
-                popUp.Tag = "mushroomGreen";
-            }
-
-        }
-
-        public void isBullet(PictureBox bullet)
-        {
-            bullet.Image = null;
-            world.mario.Height = world.mario.Height - 4;
-            world.mario.Width = world.mario.Width - 4;
-            world.baseMarioY += 4;
-            world.lives--;
-            world.labelLivesNum.Text = world.lives.ToString(); 
-        }
-
-        public bool isLandingOnItem(PictureBox item)
-        {
-            String[] landableItems = new string[2] { "question", "brick" };
-            for(var i = 0; i <landableItems.Length; i++)
-            {
-                if((string)item.Tag == landableItems[i])
-                {
-                   // world.baseMarioY -= item.Height;
-                    return true;
-                }
-            }
-            return false;
-        }
 
         public Point FormToBackgroundCoords(Point src, Control background)
         {
             return new Point(src.X - background.Location.X, src.Y - background.Location.Y);
         }
 
-        public List<PictureBox> getCollidables()
+        public List<WorldObject> getCollidables()
         {
-            return world.worldItems.Where(x => (string)x.Tag != "coin").ToList();
+            return WorldObject.allWorldObjects.ToList();
         }
 
         /*   private void bounce(PictureBox mario, string direction)
